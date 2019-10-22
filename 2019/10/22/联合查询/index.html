@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>多表查询 | Hexo</title>
+  <title>联合查询 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="select 查询内容 form table1,table2 where 条件例如:查找学生表(stu)中每个学生的姓名和相对应教师表(tea)中的老师的姓名select stu.name,tea.name from stu,tea where stu.teaid=stu.teaid;我们也可以给表起别名以便使用，如:select stu.name,tea.name from stu s,tea">
+  <meta name="description" content="在数据库中建立表与表之间的关系时有多种方式，下面我们通过举例寻找符合条件(学生表中的教师序号(tid)和教师表中的tid相同且学生序号(id)等于5)教师表(tea)中姓名(tname)和学生表(stu)中的学号(id)和姓名(name)来讲述一下。1.一般连接 select stu.id,stu.name,tea.tname from tea,stu where stu.tid=tea.tid">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多表查询">
-<meta property="og:url" content="http://yoursite.com/2019/10/21/多表查询/index.html">
+<meta property="og:title" content="联合查询">
+<meta property="og:url" content="http://yoursite.com/2019/10/22/联合查询/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="select 查询内容 form table1,table2 where 条件例如:查找学生表(stu)中每个学生的姓名和相对应教师表(tea)中的老师的姓名select stu.name,tea.name from stu,tea where stu.teaid=stu.teaid;我们也可以给表起别名以便使用，如:select stu.name,tea.name from stu s,tea">
+<meta property="og:description" content="在数据库中建立表与表之间的关系时有多种方式，下面我们通过举例寻找符合条件(学生表中的教师序号(tid)和教师表中的tid相同且学生序号(id)等于5)教师表(tea)中姓名(tname)和学生表(stu)中的学号(id)和姓名(name)来讲述一下。1.一般连接 select stu.id,stu.name,tea.tname from tea,stu where stu.tid=tea.tid">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-21T11:45:03.267Z">
+<meta property="og:updated_time" content="2019-10-22T04:46:46.267Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多表查询">
-<meta name="twitter:description" content="select 查询内容 form table1,table2 where 条件例如:查找学生表(stu)中每个学生的姓名和相对应教师表(tea)中的老师的姓名select stu.name,tea.name from stu,tea where stu.teaid=stu.teaid;我们也可以给表起别名以便使用，如:select stu.name,tea.name from stu s,tea">
+<meta name="twitter:title" content="联合查询">
+<meta name="twitter:description" content="在数据库中建立表与表之间的关系时有多种方式，下面我们通过举例寻找符合条件(学生表中的教师序号(tid)和教师表中的tid相同且学生序号(id)等于5)教师表(tea)中姓名(tname)和学生表(stu)中的学号(id)和姓名(name)来讲述一下。1.一般连接 select stu.id,stu.name,tea.tname from tea,stu where stu.tid=tea.tid">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,27 +154,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-多表查询" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-联合查询" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      多表查询
+      联合查询
     </h1>
   
 
         
-        <a href="/2019/10/21/多表查询/" class="archive-article-date">
-  	<time datetime="2019-10-21T11:36:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-21</time>
+        <a href="/2019/10/22/联合查询/" class="archive-article-date">
+  	<time datetime="2019-10-22T03:58:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>select 查询内容 form table1,table2 where 条件<br>例如:查找学生表(stu)中每个学生的姓名和相对应教师表(tea)中的老师的姓名<br>select stu.name,tea.name from stu,tea where stu.teaid=stu.teaid;<br>我们也可以给表起别名以便使用，如:<br>select stu.name,tea.name from stu s,tea s where stu.teaid=stu.teaid;</p>
+        <p>在数据库中建立表与表之间的关系时有多种方式，下面我们通过举例寻找符合条件(学生表中的教师序号(tid)和教师表中的tid相同且学生序号(id)等于5)教师表(tea)中姓名(tname)和学生表(stu)中的学号(id)和姓名(name)来讲述一下。<br>1.一般连接</p>
+<p>select stu.id,stu.name,tea.tname from tea,stu where stu.tid=tea.tid and stu.id=5;</p>
+<p>2.交叉连接</p>
+<p>交叉连接就是将上例中的分隔两表的“,”变为“cross join”并将“where”变为“on”即可。<br>select stu.id,stu.name,tea.tname from tea cross join stu on stu.tid=tea.tid and stu.id=5;</p>
+<p>3.内连接</p>
+<p>内连接就是将上例中的“cross”改为“inner”。<br>select stu.id,stu.name,tea.tname from tea inner join stu on stu.tid=tea.tid and stu.id=5;</p>
+<p>4.左外连接</p>
+<p>左外连接就是将上例子中的“inner”改为“left”。左外连接是在“left join”左边的表内容全全部显示，而右侧的只显示符合条件的内容<br>select stu.id,stu.name,tea.tname from tea left join stu on stu.tid=tea.tid and stu.id=5;  </p>
+<p>5.右外连接</p>
+<p>左外连接就是将上例子中的“left”改为“right”。左外连接是在“left join”右边的表内容全部显示，而左侧的只显示符合条件的内容<br>select stu.id,stu.name,tea.tname from tea full join stu on stu.tid=tea.tid and stu.id=5;</p>
+<p>6.全连接</p>
+<p>全连接又被称为完整外连接，它的写法就是将上例子中的“right”改为“full”。它除了包括匹配行之外，还包括”full join”关键字左右表中不匹配的数据行。其中，左表或者右表中缺少的属性值用null表示。<br>select stu.id,stu.name,tea.tname from tea full join stu on stu.tid=tea.tid and stu.id=5;</p>
 
       
 
@@ -254,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/21/多表查询/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/22/联合查询/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -268,18 +279,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/10/22/联合查询/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          联合查询
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/10/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2019/10/21/多表查询/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">多表查询</div>
       <i class="icon-circle-right"></i>
     </a>
   

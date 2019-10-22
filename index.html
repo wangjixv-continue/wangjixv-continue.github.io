@@ -152,6 +152,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-联合查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/22/联合查询/">联合查询</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/22/联合查询/" class="archive-article-date">
+  	<time datetime="2019-10-22T03:58:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在数据库中建立表与表之间的关系时有多种方式，下面我们通过举例寻找符合条件(学生表中的教师序号(tid)和教师表中的tid相同且学生序号(id)等于5)教师表(tea)中姓名(tname)和学生表(stu)中的学号(id)和姓名(name)来讲述一下。<br>1.一般连接</p>
+<p>select stu.id,stu.name,tea.tname from tea,stu where stu.tid=tea.tid and stu.id=5;</p>
+<p>2.交叉连接</p>
+<p>交叉连接就是将上例中的分隔两表的“,”变为“cross join”并将“where”变为“on”即可。<br>select stu.id,stu.name,tea.tname from tea cross join stu on stu.tid=tea.tid and stu.id=5;</p>
+<p>3.内连接</p>
+<p>内连接就是将上例中的“cross”改为“inner”。<br>select stu.id,stu.name,tea.tname from tea inner join stu on stu.tid=tea.tid and stu.id=5;</p>
+<p>4.左外连接</p>
+<p>左外连接就是将上例子中的“inner”改为“left”。左外连接是在“left join”左边的表内容全全部显示，而右侧的只显示符合条件的内容<br>select stu.id,stu.name,tea.tname from tea left join stu on stu.tid=tea.tid and stu.id=5;  </p>
+<p>5.右外连接</p>
+<p>左外连接就是将上例子中的“left”改为“right”。左外连接是在“left join”右边的表内容全部显示，而左侧的只显示符合条件的内容<br>select stu.id,stu.name,tea.tname from tea full join stu on stu.tid=tea.tid and stu.id=5;</p>
+<p>6.全连接</p>
+<p>全连接又被称为完整外连接，它的写法就是将上例子中的“right”改为“full”。它除了包括匹配行之外，还包括”full join”关键字左右表中不匹配的数据行。其中，左表或者右表中缺少的属性值用null表示。<br>select stu.id,stu.name,tea.tname from tea full join stu on stu.tid=tea.tid and stu.id=5;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/22/联合查询/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-多表查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
