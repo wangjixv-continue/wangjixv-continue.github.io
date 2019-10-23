@@ -152,6 +152,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-子查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/23/子查询/">子查询</a>
+    </h1>
+  
+
+        
+        <a href="/2019/10/23/子查询/" class="archive-article-date">
+  	<time datetime="2019-10-23T12:26:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.简单子查询</p>
+<p>如查找学生表中某学生的教师名称</p>
+<p>如下:<br>select name from tea where teaid=(select teaid from stu where Sname=”学生姓名”);</p>
+<p>2.高级子查询<br>INSERT INTO <code>score</code> VALUES (1, ‘张三’, ‘语文’, 81);<br>INSERT INTO <code>score</code> VALUES (2, ‘张三’, ‘数学’, 75);<br>INSERT INTO <code>score</code> VALUES (3, ‘李四’, ‘语文’, 76);<br>INSERT INTO <code>score</code> VALUES (4, ‘李四’, ‘数学’, 90);<br>INSERT INTO <code>score</code> VALUES (5, ‘王五’, ‘语文’, 81);<br>INSERT INTO <code>score</code> VALUES (6, ‘王五’, ‘数学’, 100);<br>INSERT INTO <code>score</code> VALUES (7, ‘王五 ‘, ‘英语’, 90);</p>
+<p>问题：每门课的分数 – 解决方案：把分数少于80分的进行排除<br>2.1 not in<br>将不符合in里面的条件的表内相应内容显示出来。<br>SELECT *  FROM score WHERE NAME NOT IN (SELECT  NAME FROM score WHERE score&lt;=80);<br>2.2not exists<br>当exists的括号里值返回为true时将相应内容进行显示<br>SELECT * FROM score a WHERE NOT EXISTS (SELECT * FROM score b WHERE a.name = b.name AND b.score &lt; 80) ;</p>
+<p>2.3all()方法<br>通过比较运算符将一个表达式的值与子查询返回的一列值中的每一行进行比较，只要有一次比较结果为false，则测试结果为false，子查询条件外的语句将不会执行，否则将执行子查询外的程序<br>SELECT *<br>FROM score a WHERE 80 &lt; ALL(SELECT score FROM score WHERE a.name = NAME );</p>
+<p>2.4any()方法<br>any与子查询在一起使用时，按照比较运算符、表达式或字段对子查询的结果的每一行进行一次计算和比较，只要有一次满足条件，那么any的结果就为真，当查询结果都为假时，则结果外假，其作用与“in”等效。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/10/23/子查询/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-联合查询" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
